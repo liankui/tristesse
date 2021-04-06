@@ -1,2 +1,2 @@
 # tristesse
-go-micro shorten url api
+grpc shorten url api
