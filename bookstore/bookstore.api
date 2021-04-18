@@ -1,0 +1,38 @@
+syntax = "v1"
+
+info(
+	title: bookstore
+	desc: bookstore API
+	author: "liankui"
+	email: "“yuekewin@gmail.com”"
+)
+
+type (
+	addReq {
+		Book  string `form:"book"`
+		Price int64  `form:"price"`
+	}
+
+	addResp {
+		Ok bool `json:"ok"`
+	}
+)
+
+type (
+	checkReq {
+		Book string `form:"book"`
+	}
+
+	checkResp {
+		Found bool  `json:"found"`
+		Price int64 `json:"price"`
+	}
+)
+
+service bookstore-api {
+	@handler AddHandler
+	get /add(addReq) returns (addResp)
+	
+	@handler CheckHandler
+	get /check(checkReq) returns (checkResp)
+}
